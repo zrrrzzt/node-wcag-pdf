@@ -1,3 +1,9 @@
+# IDE
+.idea
+
+# OS X
+.DS-Store
+
 # Logs
 logs
 *.log
