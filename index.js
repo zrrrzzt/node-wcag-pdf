@@ -1,6 +1,7 @@
 'use strict'
 
 var getResults = require('./lib/getResults')
+var parseResults = require('./lib/parseResults')
 
 function checkPdf (options, callback) {
   if (!options) {
@@ -11,7 +12,13 @@ function checkPdf (options, callback) {
     if (error) {
       return callback(error, null)
     } else {
-      return callback(null, data)
+      parseResults(data, function (err, result) {
+        if (err) {
+          return callback(err, null)
+        } else {
+          return callback(null, result)
+        }
+      })
     }
   })
 }

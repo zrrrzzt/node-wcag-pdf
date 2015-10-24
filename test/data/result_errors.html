@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" media="screen, projection, print" href="/static/css/screen.css" />
+    <link rel="stylesheet" type="text/css" media="screen, projection, print" href="/static/css/screen_hacks.css" />
+    <link rel="stylesheet" type="text/css" media="screen, projection, print" href="/static/css/screen_css3.css" />
+    <link rel="stylesheet" type="text/css" media="screen, projection, print" href="/static/css/screen_testresults_all.css" />
+    <link rel="stylesheet" type="text/css" media="screen, projection, print" href="/static/css/checker2Init.css" />
+    <link rel="stylesheet" type="text/css" media="screen, projection, print" href="/static/css/checker2AccordionLoaded.css" />
+    <link rel="stylesheet" type="text/css" media="print" href="/static/css/print.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/screen_js.css" />
+    <link rel="shortcut icon" href="/static/images/favicons/favicon.ico" type="image/x-icon" />
+    <script src="/static/scripts/jquery-1.7.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/scripts/jquery-1.8.2_ui.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript">
+      function validateForm() {
+      var x = document.forms["urlform"]["url"].value;
+      if (x == null || x == "") {
+      alert("Please enter a valid URL");
+      return false;
+      }
+      }   
+    // Show/hide searchbox keyboard operable tooltip
+    $(document).ready(function(){
+         $("#tip1").attr("aria-hidden","true");
+         $("#tip1").addClass("hidden");
+      $("input#searchbox").focus(function(){
+            $("#tip1").attr("aria-hidden","false");
+            $("#tip1").removeClass("hidden");
+      });
+        $("input#searchbox").mouseover(function(){
+            $("#tip1").attr("aria-hidden","false");
+            $("#tip1").removeClass("hidden");
+      });
+       // repeat for the keyboard accessibility for all buttons, enter makes it click...
+             $("input#searchbox").blur(function(){
+            $("#tip1").attr("aria-hidden","true");
+            $("#tip1").addClass("hidden");
+      });
+        $("input#searchbox").mouseleave(function(){
+            $("#tip1").attr("aria-hidden","true");
+            $("#tip1").addClass("hidden");
+      });
+            $("input#searchbox").keydown(function(ev){
+            if (ev.which ==27)  {
+                             $("#tip1").attr("aria-hidden","true");
+                             $("#tip1").addClass("hidden");
+                             ev.preventDefault();
+                             return false;
+                             }
+      });
+    });
+
+      $(window).load(function(){
+      var curPage="";
+      $("#rstTestlist a").click(function() {
+      if (curPage.length) { 
+      $("#"+curPage).hide();
+      }
+      $( "#testlistIntro" ).hide();
+      curPage=$(this).data("page");
+      $("#"+curPage).show();
+      });
+      }); 
+
+
+       function getAutocompletUrl () {
+            var autocompleteurl = "http://search5.tingtun.no/autocomplete/?sites=";
+            return autocompleteurl + "accessibility.tingtun.no,eiii.eu,www.w3.org,hub.eaccessplus.eu";
+            
+        }
+
+       function toggle_hidden_serp(clicker_id, ref_id)
+       {
+          var elems = document.getElementsByClassName("pnoshow");
+
+           for (var i=0; i<elems.length; i++) {
+                var elem_ref = elems[i].getAttribute("ref");
+                if (elem_ref == ref_id) {                             
+                    // Unhide this element                                       
+                    elems[i].style.display = "block";
+                }                                        
+            }
+
+          var clicker = document.getElementById("clicker" + clicker_id);
+          clicker.style.display = "none";
+
+         }
+
+                                         
+       $(document).ready( function() {
+                                       
+           $("#searchbox").autocomplete({source: getAutocompletUrl(), minLength: 2, autoFocus: true});
+        
+       });  
+
+    </script>
+
+    
+    <title></title>
+    
+  </head>
+
+  <body>
+    <div id="page_container">
+        <span class="user" style="color: #fff;">
+        
+            
+                <a style="color: #fff;" href="/accounts/login/">Login</a>
+            
+       
+      </span>         
+    <header role="banner">
+        <div id="skiptocontent">
+            <a href="#maincontent" class="skiptocontent">skip to main content</a>
+        </div>
+          <div class="f_classSet_jsActive">
+            
+              <div id="header">
+                <div id="logo">
+                    <h1 class="header_h1">European Internet Inclusion Initiative </h1>
+                </div>
+              </div>
+            
+      <div style="background-color: white; color: #025589; font-size: 12pt;" align="center">
+       Note! Preliminary tools provided for development comments.
+      </div>
+
+        <div class="searchbox">
+          <form action="/search/" name="searchform" method="GET">
+  <label class="searchlabel" for="searchbox">Search</label>
+  <input type="text" size="20" name="term" id="searchbox" value="" aria-describedby="tip1" role="combobox" />
+  <span id="tip1" class="tooltip hidden" role="tooltip" aria-hidden="true">Enter search phrase here</span>
+  <input class="searchbutton" type="submit" name="Search" value="Search" />
+</form>
+
+        </div>
+
+    </header>
+
+      <div id="mainmenu">
+        <ul>
+          <li class="first active ">
+            <div>
+              <a href="/" title="Check a document for accessibility problems">eAccessibility</a>
+              <span class="none">.</span>            </div>
+          </li>
+          <li class="last">
+            <div>
+              <a href="http://eiii.eu/contact/" title="Contact us" target="_top">Contact</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="clear"></div>
+      <div id="mainWrapper">
+        <div id="mainContainer">
+          <div id="submenuWrapper">
+            <div id="submenu_container">
+              <div class="submenu">
+                <div>
+                  <nav role="navigation" aria-labelledby="invNavHeading">
+                  <h2 id="invNavHeading" class="invisible">eAccessibility main menu"</h2> <ul>
+                    <li class=" ">
+                      <a href="/en/pagecheck/" title="Check a web page for accessibility problems following WCAG 2.0">
+                        <span>
+                          Page Checker
+                        </span>
+                      </a>
+                      <span class="none">.</span>                
+                    </li>
+                    <li class=" ">
+                      <a href="/en/pdfcheck/" title="Check a PDF for accessibility problems">
+                        <span>
+                          PDF Checker
+                        </span>
+                      </a>
+                      <span class="none">.</span>                                             
+                    </li>
+                    <li class="">
+                      <a href="/en/benchmarking/" title="Latest Results of our Sites-Checks">
+                        <span>
+                          Benchmarking
+                        </span>
+                      </a>
+                      <span class="none">.</span>
+                      <div>
+                        <ul>
+                          <li class="">
+                            <a href="/en/benchmarking/previous/" title="See the all benchmarking results">
+                              <span>
+                                Benchmarking Results
+                              </span>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="">
+                        <a href="/en/tests/" title="List of checkers Tests">
+                                <span>
+                                Checkers Tests
+                                </span>
+                        </a>
+                        <div>
+                            <ul>
+                                    <li class="">
+                                        <a href="/en/tests/">
+                                                <span>
+                                                Checker HTML Tests
+                                                </span>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="/en/pdftests/">
+                                                <span>
+                                                Checker PDF Tests
+                                                </span>
+                                        </a>
+                                    </li>
+                            </ul>
+                        </div>
+                    <li class=" last">
+                      <a href="/en/faqs/" title="Frequently asked questions">
+                        <span>
+                          FAQ
+                        </span>
+                      </a>
+                    </li>
+                    <li class="last">
+                      <a href="/en/faqs_utt/">
+                        <span>
+                          User testing tool (beta)
+                        </span>
+                      </a>
+                    </li>
+                    <li class="last">
+                      <a href="/weblog">
+                        <span>
+                          Dev Blog (new!)
+                        </span>
+                      </a>
+                    </li>
+                </div>
+              </div>
+              </nav>
+            </div>
+            <hr class="invisible">
+          </div>
+        <main id="maincontainer" role="main">
+          <div class="breadcrumbWrapper">
+            <div id="breadcrumbContainer">
+              <div id="breadcrumb" role="navigation" aria-label="You Are Here">
+                <ul>
+                  
+                  <li class="">
+                    <a href="/" title="Check a document for accessibility problems">eAccessibility</a>/
+                  </li>
+                  
+                </ul>
+              </div>
+            </div>
+            <hr class="invisible">
+          </div>
+       </main>
+          <div id="maincontent">
+            
+          </div>
+          <div id="content_container"><div id="content">
+
+              
+              
+<div class="split"><h1>PDF Check Result</h1></div>
+<div class="clear"></div>
+<p>The test carried out by the eAccessibility PDF checker are based on the WCAG 2.0 PDF Techniques.</p>
+<div class="resultOverviewWrapper">
+
+<div class="messagebar fail">Barriers found:  4  </div>
+
+
+ <form class="simpleform" action="/en/pdfcheck/" method="GET" enctype="multipart/form-data">
+   
+<ul class="area f_unify">
+  <li class="row noprint">
+    <label for="id_url" class="r_label f_unify-width posabs"><strong>Checked PDF:</strong></label>
+    <span class="r_content f_unifyReposition_padding-left">
+      
+      <tr><th></th><td><input id="id_url" name="url" type="text" value="https://helsedirektoratet.no/Documents/Folkehelsearbeid%20i%20kommunen/Nyhetsbrev-folkehelsearbeid-2015-4.pdf" /></td></tr>
+      
+      <span class="function-btns">
+        <input type="submit" value="Check" class="submit"/>
+        <a href="/en/pdfcheck/" class="lnk_continue">
+          Check another PDF document</a>
+      </span>
+    </span>
+</form>
+
+</li>
+
+<li class="row">
+<strong class="r_label f_unify-width posabs" style="width: 6.94em;">Time:</strong>
+<span class="r_content f_unifyReposition_padding-left" style="">
+    2015-10-24, 11:15
+</span>
+</li>
+     
+
+<li class="row feedbackedText">
+    <strong class="r_label f_unify-width posabs" style="width: 6.94em;">Applied Tests:</strong>
+    <div class="r_content f_unifyReposition_padding-left" style="margin-left: 8.4em;">
+    Total:
+    8 ,
+    <span class="markfailed">Fail:  4  </span> ,
+    <span class="markpassed">Pass:  4  </span>
+    <span class="f_tooltip f_tooltipAllowLink tooltipWrapper feedback">     
+    <span id="feedbackRequesttests" class="f_tooltipContent" role="tooltip" aria-hidden="true" style="display: none;">
+    <span class="tooltipContent">
+        
+    
+    </span>
+    </span>
+    </span>
+
+    </div>
+</li>
+
+
+
+
+<li title="Permanent link to this page" class="row lastrow">
+  <strong class="r_label f_unify-width posabs">Permalink</strong>
+  <span class="r_content f_unifyReposition_padding-left">
+    <a href="/en/pdfcheck/?url=https%3A//helsedirektoratet.no/Documents/Folkehelsearbeid%2520i%2520kommunen/Nyhetsbrev-folkehelsearbeid-2015-4.pdf">checkers.eiii.eu/en/pdfcheck/?url=https%3A//helsedirektoratet.no/Documents/Folkehelsearbeid%2520i%2520kommunen/Nyhetsbrev-folkehelsearbeid-2015-4.pdf</a>
+    <!--- <button onclick="bookmark('http://checkers.eiii.eu/en/pdfcheck/?url=https%3A//helsedirektoratet.no/Documents/Folkehelsearbeid%2520i%2520kommunen/Nyhetsbrev-folkehelsearbeid-2015-4.pdf')" value="Bookmark this result page" class="bookmarkBtn hideIfNoJS" type="button" id="bookmarkPage">Bookmark this result page</button> -->
+  </span>
+</li>
+
+
+</ul>
+</div>
+
+
+            </div>
+            
+            <div class="clear"></div>
+            
+
+          </div>
+          <div class="clear"></div>
+          
+          
+
+<div class="resultDetailsWrapper f_ariaSet_role_application jsActive" role="application">
+  <h2><span>Result Details&nbsp;</span><span class="noprint"><span>&nbsp;for&nbsp;<a class="lnk_external" title="view this page" href="https://helsedirektoratet.no/Documents/Folkehelsearbeid%20i%20kommunen/Nyhetsbrev-folkehelsearbeid-2015-4.pdf">https://helsedirektoratet.no/Documents/Folkehelsearbeid%20i%20kommunen/Nyhetsbrev-folkehelsearbeid-2015-4.pdf</a></span></span></h2>
+    <div id="resultDetails">
+        <ul class="tabpanelTabs anchorblock tablist widgetdepth0 noprint" role="tablist" aria-multiselectable="false">
+            <li class="first level0"><a href="#resultsByTest" class="lnk_anchor fs_selected fs_expandStarted fs_expandedFully" tabindex="0" role="tab" aria-selected="true" id="fs_tab783" aria-controls="resultsByTest" aria-expanded="true" style="cursor: pointer;"><span>Applied Tests</span></a></li>
+        </ul>
+        <div class="tabContentContainer">
+            <div id="resultsByTest" class="panel fs_expandStarted fs_expandedFully" aria-hidden="false" role="tabpanel" aria-labelledby="fs_tab783" style="display: block;">
+                <form action="#" class="viewOptionList main noprint hideIfNoJS" title="Presentation Options">
+                    <div class="viewOptionAddons continuous"><button id="printAllTests" type="button" class="printBtn" value="Print all tests">Print all tests</button><a href="/en/pagecheck2.0/?url=vg.no&amp;checkid=10499&amp;export=tests" class="exportBtn">Export as CSV</a></div>
+                    <fieldset id="testsViewSettings" class="resultViewSetting rstContainer_resultsByTest continuous testsViewSettings"><legend>Show</legend><div class="continuous"><input type="checkbox" name="showResultFail" id="showResultFailTests" checked="checked"><label for="showResultFailTests">Fail</label>  <input type="checkbox" name="showResultPass" id="showResultPassTests" onclick="return yousendit();"><label for="showResultPassTests">Pass</label> </div></fieldset>
+                </form>
+                <div class="verticalTabs">
+                   <div class="tabArea">
+                    <h3>Applied Tests</h3>
+                    <div id="testlist">
+                        <ul class="testlist anchorblock tablist f_startPanel_testlistIntro rstFail rstVerify rstPass" id="rstTestlist" aria-multiselectable="false">
+                        
+                        <li class="rstTest  rstVerify rstPass" style="display: list-item;">
+                                <span class="h SCnavigation-mechanisms-title_results">
+                                    
+                                    <a href="#page2" data-page="page2" tabindex="0" role="tab" aria-selected="true" aria-controls="descriptive-link" aria-expanded="true" style="cursor: pointer;">
+                                    <span class="tabIndicator"></span>
+                                    
+                                    <span class="testtitle">
+                                    <span class="continuous"><span class="invisible">(</span><span class="checker2Verify rstVerify rstCount_352" title="Verification required" style="display: none;"><span class="iconInLine"><img src="/static/images/iconChecker2_verify_smallOnBright.png" alt="Verification required"></span> 352<span class="rstFail">, </span></span><span class="checker2Fail rstFail rstCount_194" title="Failed"><span class="iconInLine"><img src="/static/images/iconChecker2_fail_smallOnBright.png" alt="Failed"></span> 1</span><span class="invisible">)</span></span>
+                                                        
+                                    Bookmarks
+                                    </span>
+                                    </a>
+                            
+                                </span>
+                            </li>
+                        
+                        <li class="rstTest  rstVerify rstPass" style="display: list-item;">
+                                <span class="h SCnavigation-mechanisms-title_results">
+                                    
+                                    <a href="#page22" data-page="page22" tabindex="0" role="tab" aria-selected="true" aria-controls="descriptive-link" aria-expanded="true" style="cursor: pointer;">
+                                    <span class="tabIndicator"></span>
+                                    
+                                    <span class="testtitle">
+                                    <span class="continuous"><span class="invisible">(</span><span class="checker2Verify rstVerify rstCount_352" title="Verification required" style="display: none;"><span class="iconInLine"><img src="/static/images/iconChecker2_verify_smallOnBright.png" alt="Verification required"></span> 352<span class="rstFail">, </span></span><span class="checker2Fail rstFail rstCount_194" title="Failed"><span class="iconInLine"><img src="/static/images/iconChecker2_fail_smallOnBright.png" alt="Failed"></span> 1</span><span class="invisible">)</span></span>
+                                                        
+                                    Structure Elements (tags)
+                                    </span>
+                                    </a>
+                            
+                                </span>
+                            </li>
+                        
+                        <li class="rstTest  rstVerify rstPass" style="display: list-item;">
+                                <span class="h SCnavigation-mechanisms-title_results">
+                                    
+                                    <a href="#page14" data-page="page14" tabindex="0" role="tab" aria-selected="true" aria-controls="descriptive-link" aria-expanded="true" style="cursor: pointer;">
+                                    <span class="tabIndicator"></span>
+                                    
+                                    <span class="testtitle">
+                                    <span class="continuous"><span class="invisible">(</span><span class="checker2Verify rstVerify rstCount_352" title="Verification required" style="display: none;"><span class="iconInLine"><img src="/static/images/iconChecker2_verify_smallOnBright.png" alt="Verification required"></span> 352<span class="rstFail">, </span></span><span class="checker2Fail rstFail rstCount_194" title="Failed"><span class="iconInLine"><img src="/static/images/iconChecker2_fail_smallOnBright.png" alt="Failed"></span> 1</span><span class="invisible">)</span></span>
+                                                        
+                                    Running Headers and Footers
+                                    </span>
+                                    </a>
+                            
+                                </span>
+                            </li>
+                        
+                        <li class="rstTest  rstVerify rstPass" style="display: list-item;">
+                                <span class="h SCnavigation-mechanisms-title_results">
+                                    
+                                    <a href="#page18" data-page="page18" tabindex="0" role="tab" aria-selected="true" aria-controls="descriptive-link" aria-expanded="true" style="cursor: pointer;">
+                                    <span class="tabIndicator"></span>
+                                    
+                                    <span class="testtitle">
+                                    <span class="continuous"><span class="invisible">(</span><span class="checker2Verify rstVerify rstCount_352" title="Verification required" style="display: none;"><span class="iconInLine"><img src="/static/images/iconChecker2_verify_smallOnBright.png" alt="Verification required"></span> 352<span class="rstFail">, </span></span><span class="checker2Fail rstFail rstCount_194" title="Failed"><span class="iconInLine"><img src="/static/images/iconChecker2_fail_smallOnBright.png" alt="Failed"></span> 1</span><span class="invisible">)</span></span>
+                                                        
+                                    Document Title
+                                    </span>
+                                    </a>
+                            
+                                </span>
+                            </li>
+                        
+                        
+                        <li class="rstTest  rstVerify rstPass" style="display: list-item;">
+                        <span class="h SCmeaning-other-lang-id_results">
+                        <a href="#page20" data-page="page20" tabindex="0" role="tab" aria-selected="true" aria-controls="descriptive-link" aria-expanded="true" style="cursor: pointer;">
+                        <span class="tabIndicator"></span>
+                        <span class="testtitle">
+                                                        <span class="continuous"><span class="invisible">(</span><span class="checker2Pass rstPass rstCount_5" title="Passed" style="display: inline;"><span class="iconInLine"><img src="/static/images/iconChecker2_pass_smallOnBright.png" alt="Passed"></span> 1<span class="rstVerify " style="display: none;">, </span></span><span class="checker2Verify rstVerify rstCount_386" title="Verification required" style="display: none;"><span class="iconInLine"><img src="/static/images/iconChecker2_verify_smallOnBright.png" alt="Verification required"></span> 386</span><span class="invisible">)</span></span>
+                                                        Scanned Document 
+                        </span>
+                        </a>
+                        </span>
+                        </li>
+                        
+                        <li class="rstTest  rstVerify rstPass" style="display: list-item;">
+                        <span class="h SCmeaning-other-lang-id_results">
+                        <a href="#page21" data-page="page21" tabindex="0" role="tab" aria-selected="true" aria-controls="descriptive-link" aria-expanded="true" style="cursor: pointer;">
+                        <span class="tabIndicator"></span>
+                        <span class="testtitle">
+                                                        <span class="continuous"><span class="invisible">(</span><span class="checker2Pass rstPass rstCount_5" title="Passed" style="display: inline;"><span class="iconInLine"><img src="/static/images/iconChecker2_pass_smallOnBright.png" alt="Passed"></span> 1<span class="rstVerify " style="display: none;">, </span></span><span class="checker2Verify rstVerify rstCount_386" title="Verification required" style="display: none;"><span class="iconInLine"><img src="/static/images/iconChecker2_verify_smallOnBright.png" alt="Verification required"></span> 386</span><span class="invisible">)</span></span>
+                                                        Document Permissions 
+                        </span>
+                        </a>
+                        </span>
+                        </li>
+                        
+                        <li class="rstTest  rstVerify rstPass" style="display: list-item;">
+                        <span class="h SCmeaning-other-lang-id_results">
+                        <a href="#page16" data-page="page16" tabindex="0" role="tab" aria-selected="true" aria-controls="descriptive-link" aria-expanded="true" style="cursor: pointer;">
+                        <span class="tabIndicator"></span>
+                        <span class="testtitle">
+                                                        <span class="continuous"><span class="invisible">(</span><span class="checker2Pass rstPass rstCount_5" title="Passed" style="display: inline;"><span class="iconInLine"><img src="/static/images/iconChecker2_pass_smallOnBright.png" alt="Passed"></span> 1<span class="rstVerify " style="display: none;">, </span></span><span class="checker2Verify rstVerify rstCount_386" title="Verification required" style="display: none;"><span class="iconInLine"><img src="/static/images/iconChecker2_verify_smallOnBright.png" alt="Verification required"></span> 386</span><span class="invisible">)</span></span>
+                                                        Natural Language 
+                        </span>
+                        </a>
+                        </span>
+                        </li>
+                        
+                        <li class="rstTest  rstVerify rstPass" style="display: list-item;">
+                        <span class="h SCmeaning-other-lang-id_results">
+                        <a href="#page3" data-page="page3" tabindex="0" role="tab" aria-selected="true" aria-controls="descriptive-link" aria-expanded="true" style="cursor: pointer;">
+                        <span class="tabIndicator"></span>
+                        <span class="testtitle">
+                                                        <span class="continuous"><span class="invisible">(</span><span class="checker2Pass rstPass rstCount_5" title="Passed" style="display: inline;"><span class="iconInLine"><img src="/static/images/iconChecker2_pass_smallOnBright.png" alt="Passed"></span> 1<span class="rstVerify " style="display: none;">, </span></span><span class="checker2Verify rstVerify rstCount_386" title="Verification required" style="display: none;"><span class="iconInLine"><img src="/static/images/iconChecker2_verify_smallOnBright.png" alt="Verification required"></span> 386</span><span class="invisible">)</span></span>
+                                                        Correct Tab and Reading Order 
+                        </span>
+                        </a>
+                        </span>
+                        </li>
+                        
+                        </ul>
+                        
+                    </div>
+                   </div>
+                   
+                 <div class="panelArea">
+                   <div class="panelsWrapper">
+                     <div class="content" id="testlistIntro">
+                       <p>Select a test to display the details</p>
+                     </div>
+
+                     
+                     <div id="page2" class="content" style="display: none;">
+                       <h3 class="fail">Bookmarks: Document does not have bookmarks</h3>
+                       
+                       <div class="tabContentContainer">
+                         <blockquote class="noBlockquote">
+                           
+                           <p class="alertbox">This test is based on the WCAG 2.0 Technique <a class="lnk_external" href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/PDF2">PDF2: Creating bookmarks in PDF documents</a></p>
+                           
+                           <h5 class="hd1">Cause:</h5>    
+                           The document does not contain bookmarks.
+                           
+                           <h5 class="hd1">Why this may be a barrier:</h5>
+                            <p>PDF documents without bookmarks are difficult to navigate because no navigation structure is presented, which would allow the user to jump directly to important parts of the document such as the beginnings of the sections.</p>
+                        <p>Users of assistive technology will find it very difficult to use documents without bookmarks, especially if the documents are very long or do not have tags. All users will benefit from bookmarks that provide a consistent navigation structure.</p>
+                           
+                                                     
+                           <h5 class="hd1">Related WCAG 1.0 Checkpoint:</h5>
+                            <p><strong>13.3</strong> <cite>"Provide information about the general layout of a site (e.g., a site map or table of contents). [Priority 2]"</cite></p>
+                        <p><a class="lnk_external" href="http://www.w3.org/TR/WCAG10/#gl-facilitate-navigation">WCAG 1.0 Checkpoint 13.3</a></p>    
+                           
+                                                     
+                           <h5 class="hd1">Related WCAG 2.0 Success Criteria:</h5>    
+                            <p><strong>2.4.5 Multiple Ways</strong> <cite>"More than one way is available to locate a Web page within a set of Web pages except where the Web Page is the result of, or a step in, a process. (Level AA)"</cite></p>   
+                        <p><a class="lnk_external" href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc">WCAG 2.0 Success Criteria 2.4.5</a></p>  
+                           
+                                                   
+                           <h5 class="hd1">Related WCAG 2.0 Technique:</h5>    
+                                 
+                                    <p><a class="lnk_external" href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/PDF2"></a>PDF2: Creating bookmarks in PDF documents</p>    
+                                 
+                           
+                                                                               
+                           <h5 class="hd1">Difi guidelines for universal design of electronic documents:</h5>   
+                            <div lang="nb">
+                        <p><a class="lnk_external" href="http://www.standard.difi.no/hjelp-og-veiledning/universell-utforming-av-elektroniske-dokumenter">Difi Veileder for universell utforming av elektroniske dokumenter</a></p>
+                        <ul> <li>4.6 Overskrifter</li></ul>
+                        </div>  
+                           
+                         </blockquote>   
+                       </div>   
+                     </div>
+                     
+                     <div id="page22" class="content" style="display: none;">
+                       <h3 class="fail">Structure Elements (tags): Document does not have structure elements (tags)</h3>
+                       
+                       <div class="tabContentContainer">
+                         <blockquote class="noBlockquote">
+                           
+                           <h5 class="hd1">Cause:</h5>    
+                           The document does not contain structure elements(tags).
+                           
+                           <h5 class="hd1">Why this may be a barrier:</h5>
+                            <p>Tags are used to mark the meaning and function of the elements within the document: for example change of language, position of a section in the heading structure, special elements such as forms, table, and figures.</p>
+                        <p>Tags are crucial for the accessibility of a PDF document. They describe the structure of the document, but they do not influence its appearance. Tags are processed by the PDF software (including assistive technology such as screen readers). If tags are missing, important information about the structure of the document is not accessible to people with special needs. </p>
+                           
+                                                     
+                           <h5 class="hd1">Related WCAG 1.0 Checkpoint:</h5>
+                           <p><strong>3.2</strong> <cite> “Create documents that validate to published formal grammars. [Priority 2]”</cite>
+                        <p><a class="lnk_external" href="http://www.w3.org/TR/WAI-WEBCONTENT/#tech-identify-grammar">WCAG 1.0 Checkpoint 3.2</a></p>
+                           
+                                                     
+                           <h5 class="hd1">Related WCAG 2.0 Success Criteria:</h5>    
+                           <p><strong>1.3.1 Info and Relationships </strong> <cite>“Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text. (Level A)”</cite></p>                     
+                        <p><a class="lnk_external" href="http://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 2.0 Success Criterion 1.3.1</a></p>
+                           
+                           
+                           
+                         </blockquote>   
+                       </div>   
+                     </div>
+                     
+                     <div id="page14" class="content" style="display: none;">
+                       <h3 class="fail">Running Headers and Footers: Document does not have running headers and footers</h3>
+                       
+                       <div class="tabContentContainer">
+                         <blockquote class="noBlockquote">
+                           
+                            <p class="alertbox">This test is based on the WCAG 2.0 Technique <a class="lnk_external" href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/PDF14">PDF14: Providing running headers and footers in PDF documents</a></p>
+
+<p class="alertbox">
+<strong class="alert">Warning! This test is still under development.</strong>
+<br>
+This test can not identify all instances of the described problem. In some cases a potential barrier is reported but further investigation is needed to confirm that the issue is an accessibility barrier.If you have any questions or feedback on this test,
+<a href="http://eiii.eu/contact/">please contact us</a>
+                           
+                           <h5 class="hd1">Cause:</h5>    
+                           Running headers and footers are not provided or running headers and footers provided are inconsistent with the section headers.
+                           
+                           <h5 class="hd1">Why this may be a barrier:</h5>
+                            <p>Running headers and footers help make content easier to use and understandable by providing repeated information in a consistent and predictable way.</p>
+                        <p>The content of headers and footers will vary widely depending on the document scope and content, the audience, and design decisions. Whether the information appears in a header or a footer is often a design decision; page numbers often appear in footers but they may alternatively appear in headers.</p>
+                        <p>Consistency helps users with cognitive limitations, screen-reader users and low-vision magnifier users, and users with intellectual disabilities understand content more readily.</p>
+                           
+                           
+                                                     
+                           <h5 class="hd1">Related WCAG 2.0 Success Criteria:</h5>    
+                            <p><strong>2.4.8 Location:</strong> <cite>“Information about the user’s location within a set of web pages is available. (Level AAA)”</cite></p>                      
+                        <p><a class="lnk_external" href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-location">WCAG 2.0 Success Criterion 2.4.8</a></p>
+                        <p><strong>3.2.3 Consistent Navigation:</strong> <cite>“Navigational mechanisms that are repeated on multiple Web pages within a set of Web pages occur in the same relative order each time they are repeated, unless a change is initiated by the user. (Level AA)”</cite></p>                        
+                        <p><a class="lnk_external" href="http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-locations">WCAG 2.0 Success Criterion 3.2.3</a></p>
+                           
+                                                   
+                           <h5 class="hd1">Related WCAG 2.0 Technique:</h5>    
+                                 
+                                    <p><a class="lnk_external" href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/PDF14"></a>PDF14: Providing running headers and footers in PDF documents</p>    
+                                 
+                           
+                           
+                         </blockquote>   
+                       </div>   
+                     </div>
+                     
+                     <div id="page18" class="content" style="display: none;">
+                       <h3 class="fail">Document Title: Document does not have document title</h3>
+                       
+                       <div class="tabContentContainer">
+                         <blockquote class="noBlockquote">
+                           
+                           <p class="alertbox">This test is based on the WCAG 2.0 Technique <a class="lnk_external" href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/PDF18">PDF18: Specifying the document title using the Title entry in the document information dictionary of a PDF document</a></p>
+                           
+                           <h5 class="hd1">Cause:</h5>    
+                           The document does not contain a document title or the document title is empty
+                           
+                           <h5 class="hd1">Why this may be a barrier:</h5>
+                             <p>A document title is helpful to quickly communicate the purpose or topic of the document. When a title is not available or does not match the content, the reader may need to invest more time to determine the topic of the document and to decide whether the document contains relevant information.</p>
+                           
+                           
+                                                     
+                           <h5 class="hd1">Related WCAG 2.0 Success Criteria:</h5>    
+                           <p><strong>2.4.2 Page Titled</strong> <cite>“Web pages have titles that describe topic or purpose. (Level A)”</cite></p>                        
+                        <p><a class="lnk_external" href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-title">WCAG 2.0 Success Criterion 2.4.2</a></p>
+                           
+                                                   
+                           <h5 class="hd1">Related WCAG 2.0 Technique:</h5>    
+                                 
+                                    <p><a class="lnk_external" href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/PDF18"></a>PDF18: Specifying the document title using the Title entry in the document information dictionary of a PDF document</p>    
+                                 
+                           
+                           
+                         </blockquote>   
+                       </div>   
+                     </div>
+                                                                   
+
+                     
+                     <div id="page20" class="content" style="display: none;">
+                       <h3 class="pass">Scanned Document: Document has textual content</h3>
+                       
+                       <div class="tabContentContainer">
+                         <blockquote class="noBlockquote">
+                           
+                           <h5 class="hd1">Description:</h5>    
+                           The document contains textual content that can be presented to users who can&#39;t see the images.
+                           
+                           <h5 class="hd1">Why this may be a barrier:</h5>
+                             <p>When a paper document is converted to a PDF document, the resulting PDF is often composed of a number of images, the scans of the original pages. </p>
+                        <p>If such documents are not enhanced with text content (for instance by applying OCR) the content cannot be used by search engines or assistive technology such as screen readers, since there is no text content or document structure to process. That means that blind users can not access the content of the document. Moreover, vision impaired users will encounter problems because the text can not be copied to other applications for enlarging.</p>
+                        <p>Any text information contained in a scanned PDF document is unavailable for assistive technologies and for efficient automatic processing. This barrier is not limited to scanned images, images from other sources will cause the same problem.</p>
+                           
+                           
+                           <h5 class="hd1">Related WCAG 1.0 Checkpoint:</h5>
+                           <p><strong>3.1</strong> <cite> “When an appropriate markup language exists, use markup rather than images to convey information. [Priority 2]”</cite>
+                        <p><a class="lnk_external" href="http://www.w3.org/TR/WAI-WEBCONTENT-TECHS/#tech-use-markup">WCAG 1.0 Checkpoint 3.1</a></p>
+                           
+                                                     
+                           <h5 class="hd1">Related WCAG 2.0 Success Criteria:</h5>    
+                             <p><strong>1.4.5 Images of Text</strong> <cite>“If the technologies being used can achieve the visual presentation, text is used to convey information rather than images of text except for the following: (Level AA)”</cite></p>
+                        <ul> 
+                            <li>Customizable: The image of text can be visually customized to the user's requirements;</li>
+                            <li>Essential: A particular presentation of text is essential to the information being conveyed.</li>
+                        </ul>                       
+                        <p><a class="lnk_external" href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-presentation">WCAG 2.0 Success Criterion 1.4.5</a></p>
+                           
+                           
+                           
+                         </blockquote>   
+                       </div>   
+                     </div>
+                     
+                     <div id="page21" class="content" style="display: none;">
+                       <h3 class="pass">Document Permissions: Document does not have restrictive permissions</h3>
+                       
+                       <div class="tabContentContainer">
+                         <blockquote class="noBlockquote">
+                           
+                           <h5 class="hd1">Description:</h5>    
+                           The document permissions allow assistive technology to access the PDF content.
+                           
+                           <h5 class="hd1">Why this may be a barrier:</h5>
+                            <p>Restrictive security settings prevent the access to a PDF document. If text access for screen reader devices is not allowed, blind people can not access the content of the document. If copying of text is not allowed, persons with visual impairment might encounter problems, when using other software to read the content. </p>
+                        <p>Furthermore, users of older versions of PDF reading software might encounter compatibility problems with password protected documents. </p>
+                           
+                           
+                                                     
+                           <h5 class="hd1">Related WCAG 2.0 Success Criteria:</h5>    
+                           <p><strong>4.1 Compatible </strong> <cite>“Maximize compatibility with current and future user agents, including assistive technologies.”</cite></p>                        
+                        <p><a class="lnk_external" href="http://www.w3.org/TR/WCAG20/#ensure-compat">WCAG 2.0 Success Criterion 4.1</a></p>
+                           
+                           
+                           
+                         </blockquote>   
+                       </div>   
+                     </div>
+                     
+                     <div id="page16" class="content" style="display: none;">
+                       <h3 class="pass">Natural Language: Document has natural language specified</h3>
+                       
+                       <div class="tabContentContainer">
+                         <blockquote class="noBlockquote">
+                           
+                           <p class="alertbox">This test is based on the WCAG 2.0 Technique <a class="lnk_external" href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/PDF16">PDF16: Setting the default language using the /Lang entry in the document catalog of a PDF document</a></p>
+                           
+                           <h5 class="hd1">Description:</h5>    
+                           The document contains a specification of the natural language
+                           
+                           <h5 class="hd1">Why this may be a barrier:</h5>
+                           <p>If the natural language of a document is not known, users of screen reading software such as blind people or people with reading difficulties, will encounter problems. The pronunciation of the text might be distorted for example if a Norwegian text is read with English pronunciation.</p>
+                           
+                           
+                           <h5 class="hd1">Related WCAG 1.0 Checkpoint:</h5>
+                            <p><strong>4.1</strong> <cite> “Clearly identify changes in the natural language of a document's text and any text equivalents (e.g., captions). [Priority 1]”</cite>
+                        <p><a class="lnk_external" href="http://www.w3.org/TR/WAI-WEBCONTENT/#tech-identify-changes">WCAG 1.0 Checkpoint 4.1</a></p>
+                           
+                                                     
+                           <h5 class="hd1">Related WCAG 2.0 Success Criteria:</h5>    
+                           <p><strong>3.1.1 Language of Page</strong> <cite>“The default human language of each Web page can be programmatically determined. (Level A)”</cite></p>                     
+                        <p><a class="lnk_external" href="http://www.w3.org/TR/WCAG20/#meaning-doc-lang-id">WCAG 2.0 Success Criteria 3.1.1</a></p>
+                           
+                                                   
+                           <h5 class="hd1">Related WCAG 2.0 Technique:</h5>    
+                                 
+                                    <p><a class="lnk_external" href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/PDF16"></a>PDF16: Setting the default language using the /Lang entry in the document catalog of a PDF document</p>    
+                                 
+                           
+                                                                               
+                           <h5 class="hd1">Difi guidelines for universal design of electronic documents:</h5>   
+                           <ul> 
+                            <li>4.5 Angi språk</li>
+                            <li>8.8 Angi språk</li>
+                        </ul>  
+                           
+                         </blockquote>   
+                       </div>   
+                     </div>
+                     
+                     <div id="page3" class="content" style="display: none;">
+                       <h3 class="pass">Correct Tab and Reading Order: Document has specified reading order that is consistent with the logical structure</h3>
+                       
+                       <div class="tabContentContainer">
+                         <blockquote class="noBlockquote">
+                           
+                           <p class="alertbox">This test is based on the WCAG 2.0 Technique <a class="lnk_external" href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/PDF3">PDF3: Ensuring correct tab and reading order in PDF documents</a></p>
+
+<p class="alertbox">
+<strong class="alert">Warning! This test is still under development.</strong>
+<br>
+This test can not identify all instances of the described problem. In some cases a potential barrier is reported but further investigation is needed to confirm that the issue is an accessibility barrier.If you have any questions or feedback on this test,
+<a href="http://eiii.eu/contact/">please contact us</a>
+.
+</p>
+                           
+                           <h5 class="hd1">Description:</h5>    
+                           The document specifies a reading order that is consistent with its logical structure.
+                           
+                           <h5 class="hd1">Why this may be a barrier:</h5>
+                           <p>For sighted users, the logical order of PDF content is also the visual order on the screen. For keyboard and assistive technology users, the tab order through content, including interactive elements (form fields and links), determines the order in which these users can navigate the content.The tab order must reflect the logical order of the document.</p>
+                        <p>Logical structure is created when a document is saved as tagged PDF. The reading order of a PDF document is the tag order of document elements, including interactive elements.</p>
+                        <p>If the reading order is not correct, keyboard and assistive technology users may not be able to understand the content.</p>
+                           
+                           
+                                                     
+                           <h5 class="hd1">Related WCAG 2.0 Success Criteria:</h5>    
+                            <p><strong>1.3.2 Meaningful Sequence:</strong> <cite>“When the sequence in which content is presented affects its meaning, a correct reading sequence can be programmatically determined. (Level A)”</cite></p>
+                        <p><strong>2.1.3 Keyboard (No Exception):</strong> <cite> “All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes. (Level AAA)”</cite></p>
+                        <p><strong>2.4.3 Focus Order:</strong> <cite>“If a Web page can be navigated sequentially and the navigation sequences affect meaning or operation, focusable components receive focus in an order that preserves meaning and operability. (Level A)”</cite></p>                        
+                        <p><a class="lnk_external" href="http://www.w3.org/TR/2008/REC-WCAG20-20081211/#content-structure-separation-sequence">WCAG 2.0 Success Criteria 1.3.2</a></p>
+                        <p><a class="lnk_external" href="http://www.w3.org/TR/2008/REC-WCAG20-20081211/#keyboard-operation-all-funcs">WCAG 2.0 Success Criteria 2.1.3</a></p>
+                        <p><a class="lnk_external" href="http://www.w3.org/TR/2008/REC-WCAG20-20081211/#navigation-mechanisms-focus-order">WCAG 2.0 Success Criteria 2.4.3</a></p>
+                           
+                                                   
+                           <h5 class="hd1">Related WCAG 2.0 Technique:</h5>    
+                                 
+                                    <p><a class="lnk_external" href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/PDF3"></a>PDF3: Ensuring correct tab and reading order in PDF documents</p>    
+                                 
+                           
+                           
+                         </blockquote>   
+                       </div>   
+                     </div>
+                                                                   
+                   
+                   </div>
+                   
+                 </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+    
+   
+
+          <hr class="invisible">
+          
+        </div>
+      </div>
+       <div id="footerContainer" role="contentinfo">
+        <div id="footer">
+          <div>
+            <ul>
+              <li>
+                <a class="footer" href="/en/about/" title="About the eAccessibility Checker">About</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+              <li>
+                <a class="footer" href="http://eiii.eu/contact/" title="Give us feedback">Feedback</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+              <li>
+                <a href="/en/disclaimer/" title="About the data presented on this website">Disclaimer</a>    
+              </li>
+              <!--- <li> <a href="http://www.egovmon.no/en/sitemap.html" title="Sitemap of eGovMon.no">Sitemap</a>    </li> -->
+            </ul>
+          </div>
+        </div>
+        <div id="footerLogo">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
