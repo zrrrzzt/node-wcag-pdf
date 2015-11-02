@@ -3,10 +3,10 @@
 var tap = require('tap')
 var getResults = require('../lib/getResults')
 
-tap.test('getResults requires an option object', function (test) {
-  var options = false
-  var expectedErrorMessage = 'Missing required input: options object'
-  getResults(options, function (error, data) {
+tap.test('getResults requires a fileUrl', function (test) {
+  var fileUrl = false
+  var expectedErrorMessage = 'Missing required input fileUrl'
+  getResults(fileUrl, function (error, data) {
     tap.equal(error.message, expectedErrorMessage, expectedErrorMessage)
     test.done()
   })
