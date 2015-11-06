@@ -1,7 +1,7 @@
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 [![Build Status](https://travis-ci.org/zrrrzzt/node-wcag-pdf.svg?branch=master)](https://travis-ci.org/zrrrzzt/node-wcag-pdf)
 # node-wcag-pdf
-Check the Accessibility of a PDF Document using eiii.
+Check the Accessibility of a PDF Document using [eiii](http://checkers.eiii.eu/en/pdfcheck/).
 
 You can check a pdf by url or path to file.
 
