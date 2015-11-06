@@ -19,7 +19,7 @@ tap.test('parseResults reports not valid for result_fail.html', function (test) 
     if (error) {
       throw error
     }
-    tap.equal(data.valid, false)
+    tap.equal(data.pdfIsValid, false)
     test.done()
   })
 })
@@ -30,7 +30,7 @@ tap.test('parseResults reports valid for result_pass.html', function (test) {
     if (error) {
       throw error
     }
-    tap.equal(data.valid, true)
+    tap.equal(data.pdfIsValid, true)
     test.done()
   })
 })

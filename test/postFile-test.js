@@ -11,3 +11,14 @@ tap.test('postFile requires a filePath', function (test) {
     test.done()
   })
 })
+
+tap.test('postFile returns data', function (test) {
+  var filePath = 'test/data/invalid.pdf'
+  postFile(filePath, function (error, data) {
+    if (error) {
+      throw error
+    }
+    tap.ok(data, 'Data returned')
+    test.done()
+  })
+})
