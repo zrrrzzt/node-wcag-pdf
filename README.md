@@ -34,7 +34,7 @@ To check a pdf by url
 var checkPdf = require('wcag-pdf')
 var fileUrl = 'http://www.difi.no/sites/difino/files/difi-rapport-2015-7-digitale-barrierar-norske-nettstader.pdf'
 
-checkPdf(file, function (error, data) {
+checkPdf(fileUrl, function (error, data) {
   if (error) {
     console.error(error)
   } else {
@@ -72,7 +72,7 @@ check a pdf by file
 var checkPdf = require('node-wcag-pdf')
 var filePath = 'test/data/invalid.pdf'
 
-checkPdf(file, function (error, data) {
+checkPdf(filePath, function (error, data) {
   if (error) {
     console.error(error)
   } else {
