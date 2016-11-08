@@ -33,14 +33,14 @@
     "url": "git://github.com/zrrrzzt/node-wcag-pdf.git"
   },
   "devDependencies": {
-    "coveralls": "^2.11.4",
-    "standard": "^8.5.0",
-    "tap": "^8.0.0"
+    "coveralls": "2.11.4",
+    "standard": "8.5.0",
+    "tap": "8.0.0"
   },
   "dependencies": {
-    "cheerio": "^0.22.0",
-    "form-data": "^2.1.2",
-    "valid-url": "^1.0.9",
-    "wreck": "^10.0.0"
+    "cheerio": "0.22.0",
+    "form-data": "2.1.2",
+    "valid-url": "1.0.9",
+    "wreck": "10.0.0"
   }
 }
