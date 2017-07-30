@@ -39,7 +39,7 @@
     "tap": "10.7.0"
   },
   "dependencies": {
-    "cheerio": "0.22.0",
+    "cheerio": "1.0.0-rc.2",
     "form-data": "2.2.0",
     "valid-url": "1.0.9",
     "wreck": "12.2.2"
