@@ -1,7 +1,7 @@
 'use strict'
 
 var tap = require('tap')
-var getResults = require('../lib/getResults')
+var getResults = require('../lib/get-results')
 
 tap.test('getResults requires a fileUrl', function (test) {
   var fileUrl = false

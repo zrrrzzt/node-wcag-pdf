@@ -1,17 +1,17 @@
 'use strict'
 
-var getResults = require('./lib/getResults')
-var postFile = require('./lib/postFile')
-var parseResults = require('./lib/parseResults')
+const getResults = require('./lib/get-results')
+const postFile = require('./lib/postFile')
+const parseResults = require('./lib/parseResults')
 
-function checkPdf (file, callback) {
+module.exports = (file, callback) => {
   if (!file) {
     return callback(new Error('Missing required input: fileUrl or filePath'), null)
   }
 
-  var requiredAction = file.indexOf('http') !== -1 ? getResults : postFile
+  const requiredAction = file.indexOf('http') !== -1 ? getResults : postFile
 
-  requiredAction(file, function (error, data) {
+  requiredAction(file, (error, data) => {
     if (error) {
       return callback(error, null)
     } else {
@@ -29,5 +29,3 @@ function checkPdf (file, callback) {
     }
   })
 }
-
-module.exports = checkPdf

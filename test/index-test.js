@@ -3,7 +3,7 @@
 var tap = require('tap')
 var checkPdf = require('../index')
 
-tap.test('checkPdf requires a fileUrl or a filePath', function (test) {
+tap.test('checkPdf requires a fileUrl or a filePath', test => {
   var file = false
   var expectedErrorMessage = 'Missing required input: fileUrl or filePath'
   checkPdf(file, function (error, data) {

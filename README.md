@@ -1,6 +1,9 @@
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 [![Build Status](https://travis-ci.org/zrrrzzt/node-wcag-pdf.svg?branch=master)](https://travis-ci.org/zrrrzzt/node-wcag-pdf)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
+[![Greenkeeper badge](https://badges.greenkeeper.io/zrrrzzt/node-wcag-pdf.svg)](https://greenkeeper.io/)
+
 # node-wcag-pdf
+
 Check the Accessibility of a PDF Document using [eiii](http://checkers.eiii.eu/en/pdfcheck/).
 
 You can check a pdf by url or path to file.
@@ -31,10 +34,10 @@ To check a pdf by url
 ```javascript
 'use strict'
 
-var checkPdf = require('wcag-pdf')
-var fileUrl = 'http://www.difi.no/sites/difino/files/difi-rapport-2015-7-digitale-barrierar-norske-nettstader.pdf'
+const checkPdf = require('wcag-pdf')
+const fileUrl = 'http://www.difi.no/sites/difino/files/difi-rapport-2015-7-digitale-barrierar-norske-nettstader.pdf'
 
-checkPdf(fileUrl, function (error, data) {
+checkPdf(fileUrl, (error, data) => {
   if (error) {
     console.error(error)
   } else {
@@ -45,7 +48,7 @@ checkPdf(fileUrl, function (error, data) {
 
 returns
 
-```javascript
+```JavaScript
 { pdfIsValid: true,
   passed: 0,
   failed: 0,
@@ -55,7 +58,7 @@ returns
 
 if the pdf is not valid the result might look like this
 
-```javascript
+```JavaScript
 { pdfIsValid: false,
   passed: 4,
   failed: 4,
@@ -69,8 +72,8 @@ check a pdf by file
 ```javascript
 'use strict'
 
-var checkPdf = require('node-wcag-pdf')
-var filePath = 'test/data/invalid.pdf'
+const checkPdf = require('node-wcag-pdf')
+const filePath = 'test/data/invalid.pdf'
 
 checkPdf(filePath, function (error, data) {
   if (error) {
@@ -83,10 +86,16 @@ checkPdf(filePath, function (error, data) {
 
 returns
 
-```javascript
+```JavaScript
 { pdfIsValid: false,
   passed: 4,
   failed: 4,
   totalChecked: 8,
   resultUrl: '' }
 ```
+
+## License
+
+[MIT](LICENSE)
+
+![Robohash image of node-wcag-pdf](https://robots.kebabstudios.party/node-wcag-pdf.png "Robohash image of node-wcag-pdf")

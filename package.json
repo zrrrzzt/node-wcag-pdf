@@ -1,6 +1,6 @@
 {
   "name": "wcag-pdf",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Check the Accessibility of a PDF Document",
   "license": "MIT",
   "author": {
@@ -20,28 +20,29 @@
   ],
   "main": "index.js",
   "engines": {
-    "node": ">=4.6.1"
+    "node": ">=4.8.4"
   },
   "scripts": {
     "test": "standard && nsp check && tap --reporter=spec test/*.js",
     "coverage": "tap test/*.js --coverage",
     "coveralls": "tap --cov --coverage-report=lcov test/*.js && cat coverage/lcov.info | coveralls",
-    "setup": "npm install && node setup.js"
+    "setup": "npm install",
+    "standard-fix": "standard --fix"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/zrrrzzt/node-wcag-pdf.git"
   },
   "devDependencies": {
-    "coveralls": "2.13.0",
+    "coveralls": "2.13.1",
     "nsp": "2.8.0",
     "standard": "10.0.3",
     "tap": "10.7.2"
   },
   "dependencies": {
+    "axios": "0.16.2",
     "cheerio": "0.22.0",
     "form-data": "2.3.1",
-    "valid-url": "1.0.9",
-    "wreck": "13.0.1"
+    "valid-url": "1.0.9"
   }
 }
