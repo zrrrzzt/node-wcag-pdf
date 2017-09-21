@@ -29,9 +29,70 @@ $ npm run setup
 
 ## Usage
 
+Supports promises and callbacks.
+
+### Promises
+
 To check a pdf by url
 
+```JavaScript
+'use strict'
+
+const checkPdf = require('wcag-pdf')
+const fileUrl = 'http://www.difi.no/sites/difino/files/difi-rapport-2015-7-digitale-barrierar-norske-nettstader.pdf'
+
+checkPdf(fileUrl)
+  .then(console.log)
+  .catch(console.error)
+```
+
+returns
+
+```JavaScript
+{ pdfIsValid: true,
+  passed: 0,
+  failed: 0,
+  totalChecked: 0,
+  resultUrl: '' }
+```
+
+if the pdf is not valid the result might look like this
+
+```JavaScript
+{ pdfIsValid: false,
+  passed: 4,
+  failed: 4,
+  totalChecked: 8,
+  resultUrl: 'http://checkers.eiii.eu/en/pdfcheck/?url=https%3A//helsedirektoratet.no/Documents/Folkehelsearbeid%2520i%2520kommunen/Nyhetsbrev-folkehelsearbeid-2015-4.pdf' }
+```
+check a pdf by file
+
 ```javascript
+'use strict'
+
+const checkPdf = require('node-wcag-pdf')
+const filePath = 'test/data/invalid.pdf'
+
+checkPdf(fileUrl)
+  .then(console.log)
+  .catch(console.error)
+```
+
+returns
+
+```JavaScript
+{ pdfIsValid: false,
+  passed: 4,
+  failed: 4,
+  totalChecked: 8,
+  resultUrl: '' }
+```
+
+### Callbacks
+
+To check a pdf by url
+
+```JavaScript
 'use strict'
 
 const checkPdf = require('wcag-pdf')
