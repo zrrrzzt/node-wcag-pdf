@@ -11,7 +11,7 @@
   "bugs": {
     "url": "https://github.com/zrrrzzt/node-wcag-pdf/issues"
   },
-  "homepage": "https://github.com/zrrrzzt/node-wcag-pdf",
+  "homepage": "https://github.com/zrrrzzt/node-wcag-pdf#readme",
   "keywords": [
     "pdf",
     "wcag",
@@ -20,18 +20,18 @@
   ],
   "main": "index.js",
   "engines": {
-    "node": ">=4.8.4"
+    "node": ">=8.9.4"
   },
   "scripts": {
     "test": "standard && nsp check && tap --reporter=spec test/*.js",
     "coverage": "tap test/*.js --coverage",
     "coveralls": "tap --cov --coverage-report=lcov test/*.js && cat coverage/lcov.info | coveralls",
-    "setup": "npm install",
-    "standard-fix": "standard --fix"
+    "standard-fix": "standard --fix",
+    "refresh": "rm -rf node_modules && rm package-lock.json && npm install"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/zrrrzzt/node-wcag-pdf.git"
+    "url": "git+https://github.com/zrrrzzt/node-wcag-pdf.git"
   },
   "devDependencies": {
     "coveralls": "2.13.1",
@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "axios": "0.17.1",
-    "cheerio": "0.22.0",
+    "cheerio": "1.0.0-rc.2",
     "form-data": "2.3.2",
     "valid-url": "1.0.9"
   }
