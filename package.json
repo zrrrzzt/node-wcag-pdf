@@ -34,7 +34,7 @@
     "url": "git+https://github.com/zrrrzzt/node-wcag-pdf.git"
   },
   "devDependencies": {
-    "coveralls": "2.13.3",
+    "coveralls": "3.0.1",
     "nsp": "3.2.1",
     "standard": "11.0.1",
     "tap": "11.1.4"
