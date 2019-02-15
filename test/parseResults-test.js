@@ -9,7 +9,7 @@ tap.test('parseResults requires data', test => {
   const expectedErrorMessage = 'Missing required input: data'
   tap.throws(() => {
     parseResults(data)
-  }, {message: expectedErrorMessage})
+  }, { message: expectedErrorMessage })
   test.done()
 })
 
