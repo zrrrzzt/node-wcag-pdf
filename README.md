@@ -1,6 +1,5 @@
 [![Build Status](https://travis-ci.org/zrrrzzt/node-wcag-pdf.svg?branch=master)](https://travis-ci.org/zrrrzzt/node-wcag-pdf)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
-[![Greenkeeper badge](https://badges.greenkeeper.io/zrrrzzt/node-wcag-pdf.svg)](https://greenkeeper.io/)
 
 # node-wcag-pdf
 
@@ -158,5 +157,3 @@ returns
 ## License
 
 [MIT](LICENSE)
-
-![Robohash image of node-wcag-pdf](https://robots.kebabstudios.party/node-wcag-pdf.png "Robohash image of node-wcag-pdf")
