@@ -36,7 +36,7 @@
   "devDependencies": {
     "coveralls": "3.0.6",
     "standard": "14.1.0",
-    "tap": "14.6.1"
+    "tap": "14.6.2"
   },
   "dependencies": {
     "axios": "0.19.0",
