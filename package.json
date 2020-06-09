@@ -1,6 +1,6 @@
 {
   "name": "wcag-pdf",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "Check the Accessibility of a PDF Document",
   "license": "MIT",
   "author": {
