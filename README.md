@@ -154,6 +154,10 @@ returns
   resultUrl: '' }
 ```
 
+## Related
+
+- [node-wcag-pdf-cli](https://github.com/zrrrzzt/node-wcag-pdf-cli) cli for this module
+
 ## License
 
 [MIT](LICENSE)
