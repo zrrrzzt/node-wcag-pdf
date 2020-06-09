@@ -20,7 +20,7 @@
   ],
   "main": "index.js",
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=14.4.0"
   },
   "scripts": {
     "test": "standard && npm audit && tap --reporter=spec test/*.js",
