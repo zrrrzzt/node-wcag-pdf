@@ -39,7 +39,7 @@
     "tap": "14.10.7"
   },
   "dependencies": {
-    "axios": "0.19.2",
+    "axios": "0.20.0",
     "cheerio": "1.0.0-rc.3",
     "form-data": "3.0.0",
     "valid-url": "1.0.9"
