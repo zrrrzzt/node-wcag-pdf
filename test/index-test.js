@@ -8,7 +8,7 @@ tap.test('checkPdf requires a fileUrl or a filePath', test => {
   const expectedErrorMessage = 'Missing required input: fileUrl or filePath'
   checkPdf(file, function (error, data) {
     tap.equal(error.message, expectedErrorMessage, expectedErrorMessage)
-    test.done()
+    test.end()
   })
 })
 
@@ -17,6 +17,6 @@ tap.test('checkPdf requires a fileUrl to exist', function (test) {
   const expectedErrorMessage = 'File could not be found'
   checkPdf(file, function (error, data) {
     tap.equal(error.message, expectedErrorMessage, expectedErrorMessage)
-    test.done()
+    test.end()
   })
 })
