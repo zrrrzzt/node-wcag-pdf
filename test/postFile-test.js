@@ -8,7 +8,7 @@ tap.test('postFile requires a filePath', function (test) {
   const expectedErrorMessage = 'Missing required input: filePath'
   postFile(filePath, function (error, data) {
     tap.equal(error.message, expectedErrorMessage, expectedErrorMessage)
-    test.done()
+    test.end()
   })
 })
 
@@ -19,6 +19,6 @@ tap.test('postFile returns data', function (test) {
       throw error
     }
     tap.ok(data, 'Data returned')
-    test.done()
+    test.end()
   })
 })
