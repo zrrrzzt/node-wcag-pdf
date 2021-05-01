@@ -10,19 +10,19 @@ tap.test('parseResults requires data', test => {
   tap.throws(() => {
     parseResults(data)
   }, { message: expectedErrorMessage })
-  test.done()
+  test.end()
 })
 
 tap.test('parseResults reports not valid for result_fail.html', function (test) {
   const result = fs.readFileSync('test/data/result_fail.html').toString()
   const data = parseResults(result)
   tap.equal(data.pdfIsValid, false)
-  test.done()
+  test.end()
 })
 
 tap.test('parseResults reports valid for result_pass.html', function (test) {
   const result = fs.readFileSync('test/data/result_pass.html').toString()
   const data = parseResults(result)
   tap.equal(data.pdfIsValid, true)
-  test.done()
+  test.end()
 })
