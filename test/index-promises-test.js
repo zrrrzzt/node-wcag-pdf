@@ -10,7 +10,7 @@ tap.test('checkPdf requires a fileUrl or a filePath', test => {
     .then(console.log)
     .catch(error => {
       tap.equal(error.message, expectedErrorMessage, expectedErrorMessage)
-      return test.done()
+      return test.end()
     })
 })
 
@@ -21,6 +21,6 @@ tap.test('checkPdf requires a fileUrl to exist', function (test) {
     .then(console.log)
     .catch(error => {
       tap.equal(error.message, expectedErrorMessage, expectedErrorMessage)
-      return test.done()
+      return test.end()
     })
 })
