@@ -23,7 +23,7 @@
     "node": ">=14.18.1"
   },
   "scripts": {
-    "test": "standard && npm audit && tap --reporter=spec test/*.js",
+    "test": "standard && tap --reporter=spec test/*.js",
     "coverage": "tap test/*.js --coverage",
     "coveralls": "tap --cov --coverage-report=lcov test/*.js && cat coverage/lcov.info | coveralls",
     "standard-fix": "standard --fix",
