@@ -1,5 +1,4 @@
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
-[![Build Status](https://travis-ci.com/zrrrzzt/node-wcag-pdf.svg?branch=main)](https://travis-ci.com/zrrrzzt/node-wcag-pdf)
 
 # node-wcag-pdf
 
