@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "standard": "16.0.4",
-    "tap": "15.2.3"
+    "tap": "16.0.0"
   },
   "dependencies": {
     "axios": "0.25.0",
