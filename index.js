@@ -17,7 +17,7 @@ module.exports = (file, callback) => {
       if (error) {
         return callback ? callback(error, null) : reject(error)
       } else {
-        if (/The page could not be downloaded/.test(data)) {
+        if (/the document could not be checked/i.test(data)) {
           const error = new Error('File could not be found')
           return callback ? callback(error, null) : reject(error)
         } else {
