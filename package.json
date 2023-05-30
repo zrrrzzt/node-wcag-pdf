@@ -33,7 +33,7 @@
     "url": "git+https://github.com/zrrrzzt/node-wcag-pdf.git"
   },
   "devDependencies": {
-    "standard": "17.0.0",
+    "standard": "17.1.0",
     "tap": "16.3.0"
   },
   "dependencies": {
